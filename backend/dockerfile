@@ -1,0 +1,28 @@
+# Etapa 1: Build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /app
+
+# Copiamos los archivos del proyecto
+COPY . ./
+
+# Restauramos las dependencias
+RUN dotnet restore
+
+# Compilamos en modo Release
+RUN dotnet publish -c Release -o out
+
+# Etapa 2: Runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+WORKDIR /app
+
+# Copiamos lo compilado desde la etapa anterior
+COPY --from=build /app/out ./
+
+# Exponemos el puerto que usa la app (documentación para Docker)
+EXPOSE 80
+
+# Configuramos la URL en la que escuchará la aplicación DENTRO del contenedor
+ENV ASPNETCORE_URLS=http://+:80
+
+# Comando para ejecutar la app
+ENTRYPOINT ["dotnet", "backend.dll"]
