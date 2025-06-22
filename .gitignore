@@ -20,6 +20,9 @@ Thumbs.db
 # Dotnet
 bin/
 obj/
+.vs/
+./backend/DesignTimeBuild/
+./backend/CopilotIndices/
 
 # Others
 *.local
