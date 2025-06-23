@@ -9,7 +9,9 @@ const LoginForm = () => {
     const [password,setUserPassword] = useState('');
 
 return (
-    <form action="" onSubmit={() => {}}> //le tire unos colores ahi pa que no se queje
+    <div className='formContainer text-teal-500'>
+        <h1>Enter the credentials</h1>
+    <form action="" onSubmit={() => {}}>
     <li>
         <label htmlFor="userName">
             Username:
@@ -20,8 +22,8 @@ return (
             Password:
         </label>
     </li>
-
     </form>
+    </div>
 );
 
 }
