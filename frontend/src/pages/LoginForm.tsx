@@ -8,21 +8,31 @@ const LoginForm = () => {
     const [userName,setUserName] = useState('');
     const [password,setUserPassword] = useState('');
 
+    const handleSumbit = () => {
+
+    };
+
 return (
-    <div className='formContainer text-teal-500'>
-        <h1>Enter the credentials</h1>
-    <form action="" onSubmit={() => {}}>
-    <li>
-        <label htmlFor="userName">
+    <div className='formContainer text-black flex items-center justify-center bg-gray-50 w-full max-w-1/4 p-8 rounded-lg shadow-lg'>
+        <div className='w-full max-w-sm p-4 rounded-lg'>
+              <h1 className="mb-6 text-center text-2xl font-semibold">
+        Enter your credentials:
+      </h1>
+    <form action="" onSubmit={handleSumbit}>
+    <div className='p-2'>
+        <label htmlFor="userName" className='p-4'>
             Username:
         </label>
-    </li>
-    <li>
-        <label htmlFor="password">
+        <input type="text" placeholder='eduardomaidana' />
+        </div>
+    <div className="p-2">
+        <label htmlFor="password" className='p-4'>
             Password:
         </label>
-    </li>
+        <input type="password" placeholder='********'/>
+    </div>
     </form>
+    </div>
     </div>
 );
 
