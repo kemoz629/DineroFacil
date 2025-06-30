@@ -4,6 +4,7 @@
   "scripts": {
     "dev:frontend": "npm --prefix frontend run dev",
     "build:frontend": "npm --prefix frontend run build",
+    "update:frontend": "npm --prefix frontend update",
     "dev:backend": "dotnet watch --project backend",
     "build:backend": "dotnet publish backend -c Release",
     "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\""
