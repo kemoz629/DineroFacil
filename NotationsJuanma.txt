@@ -1,0 +1,3 @@
+IIS = Internet Information Service
+WCF = Windows Communication Fundation
+Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True; // string de conexion a la BD en SQL Server
