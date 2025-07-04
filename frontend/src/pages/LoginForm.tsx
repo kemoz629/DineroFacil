@@ -52,6 +52,14 @@ const LoginForm = () => {
             </button>
           </div>
         </form>
+        <div>
+          <p className="text-center">
+            Don't have an account loser?{" "}
+            <a href="/register" className="text-blue-500 hover:underline">
+              Sign up
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );

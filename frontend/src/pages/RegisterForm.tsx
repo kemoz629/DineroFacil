@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import BackButton from "../components/BackButton";
 
 const RegisterForm = () => {
   const [userName, setUserName] = useState("");
@@ -6,8 +8,21 @@ const RegisterForm = () => {
   const [password, setUserPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSumbit = (e: React.FormEvent) => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
+  const handleSumbit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    setLoading(true);
+
+    try {
+      // llamada al backend para el registro del ususuario
+    } catch (error) {
+      console.error("Error registering user:", error);
+    } finally {
+      setLoading(false);
+    }
 
     console.log({
       userName,
@@ -19,6 +34,8 @@ const RegisterForm = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center">
+      <BackButton />
+      <button onClick={() => navigate(-1)}>Go Back</button>
       <h1 className="title text-4xl m-10">Create an account</h1>
       <div className="p-4 rounded-lg bg-white w-1/4">
         <h1 className="mb-6 text-center text-2xl font-semibold">
@@ -75,7 +92,11 @@ const RegisterForm = () => {
           </div>
           <div className="flex justify-center">
             <button
-              className="w-2/3 rounded-md mx-auto bg-blue-200 p-1 font-bold hover:bg-blue-400"
+              disabled={loading}
+              className={`w-2/3 rounded-md mx-auto bg-blue-200 p-1 font-bold hover:bg-blue-400 ${
+                loading && "opacity-50 cursor-not-allowed"
+              }`}
+              onClick={handleSumbit}
               type="submit"
             >
               Submit
