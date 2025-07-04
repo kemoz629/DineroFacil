@@ -13,7 +13,7 @@ const LoginForm = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center">
-      <h1 className="title text-4xl m-10">Bienvenido a Dinero Facil</h1>
+      <h1 className="title text-4xl m-10">Welcome du Dinero Facil!</h1>
       <div className="p-4 rounded-lg bg-white w-1/4">
         <h1 className="mb-6 text-center text-2xl font-semibold">
           Enter your credentials:
@@ -52,6 +52,14 @@ const LoginForm = () => {
             </button>
           </div>
         </form>
+        <div>
+          <p className="text-center">
+            Don't have an account loser?{" "}
+            <a href="/register" className="text-blue-500 hover:underline">
+              Sign up
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );
